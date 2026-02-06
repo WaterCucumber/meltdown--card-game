@@ -1,0 +1,183 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd1hshmvuxsef"]
+
+[ext_resource type="PackedScene" uid="uid://cd6gfvs7ctona" path="res://Card Moving System/Scenes/card_placement.tscn" id="1_u2hwe"]
+
+[node name="Zones" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Top" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SafetyZone" type="Control" parent="Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Top/SafetyZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.033966064, 0.62109375, 0, 1)
+
+[node name="HBoxContainer" type="MarginContainer" parent="Top/SafetyZone/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 29
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Top/SafetyZone/ColorRect/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="CardPlacement2" parent="Top/SafetyZone/ColorRect/HBoxContainer/HFlowContainer" instance=ExtResource("1_u2hwe")]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="CardPlacement3" parent="Top/SafetyZone/ColorRect/HBoxContainer/HFlowContainer" instance=ExtResource("1_u2hwe")]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="CardPlacement4" parent="Top/SafetyZone/ColorRect/HBoxContainer/HFlowContainer" instance=ExtResource("1_u2hwe")]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="RepairZone" type="Control" parent="Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Top/RepairZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.66796875, 0.66796875, 0.66796875, 1)
+
+[node name="HBoxContainer2" type="MarginContainer" parent="Top/RepairZone/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 29
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Top/RepairZone/ColorRect2/HBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Centre" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GenerationZone" type="Control" parent="Centre"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Centre/GenerationZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.78515625, 0.6624756, 0, 1)
+
+[node name="HBoxContainer3" type="MarginContainer" parent="Centre/GenerationZone/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 29
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Centre/GenerationZone/ColorRect3/HBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Bottom" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CoolZone" type="Control" parent="Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Bottom/CoolZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.26367188, 0.5718384, 0.84375, 1)
+
+[node name="HBoxContainer3" type="MarginContainer" parent="Bottom/CoolZone/ColorRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 29
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Bottom/CoolZone/ColorRect4/HBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="ControlZone" type="Control" parent="Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Bottom/ControlZone"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.40809882, 0.71484375, 0.35462952, 1)
+
+[node name="HBoxContainer4" type="MarginContainer" parent="Bottom/ControlZone/ColorRect5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 29
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Bottom/ControlZone/ColorRect5/HBoxContainer4"]
+layout_mode = 2
+alignment = 1

@@ -1,0 +1,239 @@
+[gd_scene load_steps=15 format=3 uid="uid://deusnyrhiuos8"]
+
+[ext_resource type="Script" uid="uid://fawtifvkanyv" path="res://Card Moving System/Scripts/board.gd" id="1_d8vyx"]
+[ext_resource type="Script" uid="uid://c86pkfgguqyjr" path="res://Scripts/player_stats.gd" id="2_vw4oq"]
+[ext_resource type="PackedScene" uid="uid://cd6gfvs7ctona" path="res://Card Moving System/Scenes/card_placement.tscn" id="3_vjsom"]
+[ext_resource type="PackedScene" uid="uid://druki8ivfu6of" path="res://Scenes/game_zone.tscn" id="3_vw4oq"]
+[ext_resource type="Texture2D" uid="uid://dpiv0lenr2qxh" path="res://Assets/Sprites/Card/card_holder.png" id="4_upw65"]
+[ext_resource type="Script" uid="uid://sdsyhk67cmma" path="res://Card Moving System/Scripts/card_container.gd" id="5_d7frl"]
+[ext_resource type="Script" uid="uid://cbemkcuqg8c3h" path="res://Scripts/start_deck_manager.gd" id="6_vjyv8"]
+[ext_resource type="Script" uid="uid://b1brv5gpclye3" path="res://Scripts/Deck/deck.gd" id="7_hm3vq"]
+[ext_resource type="Resource" uid="uid://d23fhcp8qvtat" path="res://Resources/Decks/agressive_generators.tres" id="8_iehwj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8bwd"]
+bg_color = Color(0.5234375, 0.5234375, 0.5234375, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13epp"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mfvx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7vwf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.80859375, 0.80859375, 0.80859375, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8bwd"]
+
+[node name="Board" type="Node" node_paths=PackedStringArray("card_container")]
+script = ExtResource("1_d8vyx")
+card_container = NodePath("UI/PanelContainer/CardContainer")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Game" type="VBoxContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Stats" type="PanelContainer" parent="UI/Game"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i8bwd")
+script = ExtResource("2_vw4oq")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Game/Stats"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Game/Stats/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="UI/Game/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "sdadas"
+fit_content = true
+scroll_active = false
+
+[node name="NextTurnButton" type="Button" parent="UI/Game/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.03515625, 0.03515625, 0.03515625, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_13epp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6mfvx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c7vwf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i8bwd")
+text = "NEXT TURN!"
+
+[node name="Zones" type="VBoxContainer" parent="UI/Game"]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Top" type="HBoxContainer" parent="UI/Game/Zones"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="SafetyZone" parent="UI/Game/Zones/Top" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "safety_zone_label"
+zone_type = 5
+places_count = null
+zone_color = Color(0.03529412, 0.61960787, 0, 1)
+
+[node name="RepairZone" parent="UI/Game/Zones/Top" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "repair_zone_label"
+zone_type = 6
+places_count = null
+zone_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="Bottom" type="HBoxContainer" parent="UI/Game/Zones"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="CoolingZone" parent="UI/Game/Zones/Bottom" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "cooling_zone_label"
+zone_type = 2
+places_count = null
+zone_color = Color(0.2627451, 0.57254905, 0.84313726, 1)
+
+[node name="GenerationZone" parent="UI/Game/Zones/Bottom" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "generation_zone_label"
+zone_type = 4
+places_count = null
+zone_color = Color(0.78431374, 0.6627451, 0, 1)
+
+[node name="Centre" type="HBoxContainer" parent="UI/Game/Zones"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ControlZone" parent="UI/Game/Zones/Centre" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "control_zone_label"
+zone_type = 3
+places_count = null
+zone_color = Color(0.40784314, 0.7137255, 0.3529412, 1)
+
+[node name="RecycleZone" type="PanelContainer" parent="UI/Game/Zones/Centre"]
+modulate = Color(1, 0.5625, 0.5625, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.54
+mouse_filter = 2
+
+[node name="VBC" type="VBoxContainer" parent="UI/Game/Zones/Centre/RecycleZone"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Label4" type="Label" parent="UI/Game/Zones/Centre/RecycleZone/VBC"]
+layout_mode = 2
+text = "RECYCLE ZONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TrashContainer" type="HBoxContainer" parent="UI/Game/Zones/Centre/RecycleZone/VBC"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="CardPlacement7" parent="UI/Game/Zones/Centre/RecycleZone/VBC/TrashContainer" instance=ExtResource("3_vjsom")]
+custom_minimum_size = Vector2(111, 156)
+layout_mode = 2
+placement_zone = 1
+
+[node name="CardPlacement9" parent="UI/Game/Zones/Centre/RecycleZone/VBC/TrashContainer" instance=ExtResource("3_vjsom")]
+custom_minimum_size = Vector2(111, 156)
+layout_mode = 2
+placement_zone = 1
+
+[node name="CardPlacement10" parent="UI/Game/Zones/Centre/RecycleZone/VBC/TrashContainer" instance=ExtResource("3_vjsom")]
+custom_minimum_size = Vector2(111, 156)
+layout_mode = 2
+placement_zone = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="UI/Game/Zones/Centre/RecycleZone"]
+self_modulate = Color(0.78431374, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_upw65")
+region_rect = Rect2(-4, 0, 45, 52)
+patch_margin_left = 5
+patch_margin_right = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+z_index = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -193.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CardContainer" type="HBoxContainer" parent="UI/PanelContainer"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("5_d7frl")
+
+[node name="StartDeckManager" type="Node" parent="." node_paths=PackedStringArray("card_container")]
+script = ExtResource("6_vjyv8")
+decks = Array[ExtResource("7_hm3vq")]([ExtResource("8_iehwj")])
+card_container = NodePath("../UI/PanelContainer/CardContainer")
+
+[node name="GlobalEventsGenerator" type="Node" parent="."]
+
+[connection signal="pressed" from="UI/Game/Stats/MarginContainer/VBoxContainer/NextTurnButton" to="." method="_on_next_turn_button_pressed"]
+[connection signal="pressed" from="UI/Game/Stats/MarginContainer/VBoxContainer/NextTurnButton" to="StartDeckManager" method="_on_next_turn_button_pressed"]

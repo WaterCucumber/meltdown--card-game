@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CurrencyType" load_steps=2 format=3 uid="uid://dcbyg1th26xul"]
+
+[ext_resource type="Script" uid="uid://cgjimunn224dl" path="res://Scripts/cs/Resources/CurrencyType.cs" id="1_nsmco"]
+
+[resource]
+script = ExtResource("1_nsmco")
+placeholder_text = "/v/i (/d/i)"
+texture = "uid://d1yosva51o1pu"
+floor_coef = 100.0
+metadata/_custom_type_script = "uid://cgjimunn224dl"

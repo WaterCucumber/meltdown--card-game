@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf4qpcsv3l6bi"]
+
+[ext_resource type="Texture2D" uid="uid://ppc8ktq5wytg" path="res://Assets/Sprites/Card/empty_card_base.png" id="1_vmcwm"]
+[ext_resource type="Script" uid="uid://bfushxe18or4u" path="res://Scripts/card_visualization.gd" id="2_wk7ok"]
+[ext_resource type="Texture2D" uid="uid://bq118cyj5ouj6" path="res://Assets/Sprites/Card/empty_card_outline.png" id="3_ljxuf"]
+[ext_resource type="Texture2D" uid="uid://bmcpwlu5jgvxq" path="res://Assets/Sprites/Card/Card Effects/cooling_card_0.png" id="4_3ehw8"]
+[ext_resource type="Texture2D" uid="uid://b7brtdjmym6fl" path="res://Assets/Sprites/Card/Staff/cooling_engineer.png" id="5_g44ug"]
+[ext_resource type="Texture2D" uid="uid://b3bk6vs3btpnl" path="res://Assets/Sprites/Samples/Shapes/Circle-16.png" id="6_e2nct"]
+
+[node name="CardVisualization" type="TextureRect"]
+self_modulate = Color(0.72265625, 0.72265625, 0.72265625, 1)
+custom_minimum_size = Vector2(175, 250)
+offset_right = 105.0
+offset_bottom = 150.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_vmcwm")
+expand_mode = 1
+script = ExtResource("2_wk7ok")
+
+[node name="CardOutline" type="TextureRect" parent="."]
+self_modulate = Color(0.282, 0.184, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_ljxuf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CardEffect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.45490196)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057000004
+anchor_top = 0.040000003
+anchor_right = 0.27600002
+anchor_bottom = 0.14
+offset_left = -0.030000687
+offset_right = 0.59999466
+scale = Vector2(4, 4)
+mouse_filter = 2
+texture = ExtResource("4_3ehw8")
+stretch_mode = 1
+
+[node name="CardImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057142857
+anchor_top = 0.04
+anchor_right = 0.94285715
+anchor_bottom = 0.44
+mouse_filter = 2
+texture = ExtResource("5_g44ug")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057142857
+anchor_top = 0.46
+anchor_right = 0.94285715
+anchor_bottom = 0.58
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "sddddddddddddddddd
+dddddddddddddddddddddd"
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057142857
+anchor_top = 0.6
+anchor_right = 0.94285715
+anchor_bottom = 0.96
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "Восстанавливает 1 случайную карту в зоне."
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Cost" type="TextureRect" parent="."]
+self_modulate = Color(0.8156863, 0.68235296, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057142857
+anchor_top = 0.040000025
+anchor_right = 0.23809524
+anchor_bottom = 0.16666667
+mouse_filter = 2
+texture = ExtResource("6_e2nct")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CostLabel" type="RichTextLabel" parent="Cost"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "10"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

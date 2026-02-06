@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="EquipmentCardData" load_steps=10 format=3 uid="uid://bxv8j5ompb8gi"]
+
+[ext_resource type="Script" uid="uid://ce0lm7shqfucp" path="res://Scripts/Deck/Card/Card Use/placeable_card_use.gd" id="1_in43s"]
+[ext_resource type="Texture2D" uid="uid://bmcpwlu5jgvxq" path="res://Assets/Sprites/Card/Card Effects/cooling_card_0.png" id="1_og82y"]
+[ext_resource type="Script" uid="uid://dt6hlngc0a5hi" path="res://Scripts/Deck/Card/Card Data/equipment_card_data.gd" id="2_in43s"]
+[ext_resource type="Script" uid="uid://bmxkphlu7hbq5" path="res://Scripts/Resources/currency_reference.gd" id="2_uml4j"]
+[ext_resource type="Texture2D" uid="uid://c18g2uxt7xffy" path="res://Assets/Sprites/Card/Equipment/cooling_pump.png" id="3_g70la"]
+[ext_resource type="Script" uid="uid://6jmbu7dmvbqr" path="res://Scripts/Deck/Card/Card Use/Placeable/add_data_card_use.gd" id="3_tbrg7"]
+
+[sub_resource type="Resource" id="Resource_wkxto"]
+script = ExtResource("2_uml4j")
+type = 3
+value = -1.0
+metadata/_custom_type_script = "uid://bmxkphlu7hbq5"
+
+[sub_resource type="Resource" id="Resource_x1wxm"]
+script = ExtResource("2_uml4j")
+type = 2
+value = -3.0
+metadata/_custom_type_script = "uid://bmxkphlu7hbq5"
+
+[sub_resource type="Resource" id="Resource_x4v2b"]
+script = ExtResource("3_tbrg7")
+data = Array[ExtResource("2_uml4j")]([SubResource("Resource_wkxto"), SubResource("Resource_x1wxm")])
+metadata/_custom_type_script = "uid://6jmbu7dmvbqr"
+
+[resource]
+script = ExtResource("2_in43s")
+card_use = Array[ExtResource("1_in43s")]([SubResource("Resource_x4v2b")])
+card_zone = 2
+description = "-3 /t.
+-1 /e."
+cost = 3
+texture = ExtResource("3_g70la")
+effect_texture = ExtResource("1_og82y")
+metadata/_custom_type_script = "uid://dt6hlngc0a5hi"

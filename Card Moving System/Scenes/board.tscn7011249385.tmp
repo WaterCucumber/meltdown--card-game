@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://deusnyrhiuos8"]
+
+[ext_resource type="Script" uid="uid://fawtifvkanyv" path="res://Card Moving System/Scripts/board.gd" id="1_3e7ux"]
+[ext_resource type="Script" uid="uid://sdsyhk67cmma" path="res://Card Moving System/Scripts/card_container.gd" id="1_mdkss"]
+[ext_resource type="PackedScene" uid="uid://cwhrp73vc5wt8" path="res://Card Moving System/Scenes/card.tscn" id="2_sa2mq"]
+[ext_resource type="PackedScene" uid="uid://cd6gfvs7ctona" path="res://Card Moving System/Scenes/card_placement.tscn" id="3_d517t"]
+
+[node name="Board" type="Node"]
+script = ExtResource("1_3e7ux")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="CardContainer" type="HBoxContainer" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -22.0
+offset_right = -9.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("1_mdkss")
+
+[node name="Card" parent="UI/CardContainer" instance=ExtResource("2_sa2mq")]
+layout_mode = 2
+
+[node name="Card2" parent="UI/CardContainer" instance=ExtResource("2_sa2mq")]
+layout_mode = 2
+
+[node name="Card3" parent="UI/CardContainer" instance=ExtResource("2_sa2mq")]
+layout_mode = 2
+
+[node name="Card5" parent="UI/CardContainer" instance=ExtResource("2_sa2mq")]
+layout_mode = 2
+
+[node name="Card4" parent="UI/CardContainer" instance=ExtResource("2_sa2mq")]
+layout_mode = 2
+
+[node name="CardPlacement" parent="UI" instance=ExtResource("3_d517t")]
+custom_minimum_size = Vector2(105, 150)
+offset_left = 234.5
+offset_top = 78.0
+offset_right = -812.5
+offset_bottom = -420.0
+
+[connection signal="mouse_entered" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_exited"]

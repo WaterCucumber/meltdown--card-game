@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddjsye4fvh10x"]
+
+[ext_resource type="Script" uid="uid://dye5cfh1ywv8m" path="res://Card Moving System/Scripts/card_holder.gd" id="1_y1bod"]
+[ext_resource type="PackedScene" uid="uid://bf4qpcsv3l6bi" path="res://Scenes/card_visualisation.tscn" id="2_y1bod"]
+
+[node name="CardHolder" type="Control"]
+z_index = 1
+custom_minimum_size = Vector2(105, 150)
+layout_mode = 3
+anchor_right = 0.091000006
+anchor_bottom = 0.231
+offset_right = 0.27998352
+offset_bottom = 0.519989
+mouse_filter = 2
+script = ExtResource("1_y1bod")
+
+[node name="CardBase" parent="." instance=ExtResource("2_y1bod")]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://ecl0sicm5ii0"]
+
+[ext_resource type="Shader" uid="uid://c5tpf61f1d8co" path="res://Resources/Shaders/vhs_crt.gdshader" id="1_x0wvx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x0wvx"]
+shader = ExtResource("1_x0wvx")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 26.9570012804575
+shader_parameter/roll_variation = 2.05600009440012
+shader_parameter/distort_intensity = 0.0010000000475
+shader_parameter/noise_opacity = 0.0110000005225
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 0.0010000475475000492
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.0
+
+[node name="Effect" type="ColorRect"]
+modulate = Color(0, 0, 0, 0.4117647)
+self_modulate = Color(0, 0, 0, 1)
+z_index = 26
+material = SubResource("ShaderMaterial_x0wvx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

@@ -1,0 +1,450 @@
+[gd_scene load_steps=26 format=3 uid="uid://deusnyrhiuos8"]
+
+[ext_resource type="Script" uid="uid://fawtifvkanyv" path="res://Card Moving System/Scripts/board.gd" id="1_d8vyx"]
+[ext_resource type="Script" uid="uid://c86pkfgguqyjr" path="res://Scripts/inventory_visualizer.gd" id="2_vw4oq"]
+[ext_resource type="PackedScene" uid="uid://cd6gfvs7ctona" path="res://Card Moving System/Scenes/card_placement.tscn" id="3_vjsom"]
+[ext_resource type="PackedScene" uid="uid://druki8ivfu6of" path="res://Scenes/game_zone.tscn" id="3_vw4oq"]
+[ext_resource type="Shader" uid="uid://b8mqkw0i66xyl" path="res://Resources/Shaders/gas.gdshader" id="4_qjv7d"]
+[ext_resource type="Texture2D" uid="uid://dpiv0lenr2qxh" path="res://Assets/Sprites/Card/card_holder.png" id="4_upw65"]
+[ext_resource type="Script" uid="uid://sdsyhk67cmma" path="res://Card Moving System/Scripts/card_container.gd" id="5_d7frl"]
+[ext_resource type="Script" uid="uid://cbemkcuqg8c3h" path="res://Scripts/start_deck_manager.gd" id="6_vjyv8"]
+[ext_resource type="Script" uid="uid://b1brv5gpclye3" path="res://Scripts/Deck/deck.gd" id="7_hm3vq"]
+[ext_resource type="Resource" uid="uid://d23fhcp8qvtat" path="res://Resources/Decks/agressive_generators.tres" id="8_iehwj"]
+[ext_resource type="Script" uid="uid://tlxit225dlkn" path="res://Scripts/game_over.gd" id="9_vjyv8"]
+[ext_resource type="Script" uid="uid://nlunia6d5tbk" path="res://Scripts/Autoload/global_difficulty_applier.gd" id="9_vw4oq"]
+[ext_resource type="StyleBox" uid="uid://d21jrtu0prhmy" path="res://Resources/game_over_separator.tres" id="10_hm3vq"]
+[ext_resource type="Script" uid="uid://jd8jqq83sigo" path="res://Scripts/Buttons/exit_button.gd" id="11_o5s4g"]
+[ext_resource type="Script" uid="uid://crq435xe5bphu" path="res://Scripts/Buttons/load_scene_button.gd" id="12_2cdyc"]
+[ext_resource type="PackedScene" uid="uid://b418qlaldakw5" path="res://Scenes/transition.tscn" id="13_2cdyc"]
+[ext_resource type="Script" uid="uid://iwrlwcf7vb8s" path="res://Scripts/Resources/decks.gd" id="14_iehwj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjyv8"]
+shader = ExtResource("4_qjv7d")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 26.9570012804575
+shader_parameter/roll_variation = 2.05600009440012
+shader_parameter/distort_intensity = 0.0010000000475
+shader_parameter/noise_opacity = 0.0110000005225
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 0.0010000475475000492
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.0
+shader_parameter/heat_distortion_strength = 0.0010000000475
+shader_parameter/heat_wave_speed = 10.0
+shader_parameter/heat_tint_color = Color(1, 0.5, 0.2, 1)
+shader_parameter/heat_tint_intensity = 0.250000011875
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8bwd"]
+bg_color = Color(0.5234375, 0.5234375, 0.5234375, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13epp"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mfvx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7vwf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.80859375, 0.80859375, 0.80859375, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8bwd"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hm3vq"]
+color = Color(0.54901963, 0.54901963, 0.54901963, 1)
+grow_begin = -20.0
+grow_end = -20.0
+thickness = 4
+
+[sub_resource type="Resource" id="Resource_7iy1p"]
+script = ExtResource("14_iehwj")
+decks = Array[ExtResource("7_hm3vq")]([ExtResource("8_iehwj")])
+metadata/_custom_type_script = "uid://iwrlwcf7vb8s"
+
+[node name="Board" type="Node" node_paths=PackedStringArray("card_container")]
+script = ExtResource("1_d8vyx")
+card_container = NodePath("UI/PanelContainer/CardContainer")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameEffects" type="ColorRect" parent="UI"]
+self_modulate = Color(1, 1, 1, 0.27450982)
+z_index = 25
+material = SubResource("ShaderMaterial_vjyv8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Game" type="VBoxContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Stats" type="PanelContainer" parent="UI/Game"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i8bwd")
+script = ExtResource("2_vw4oq")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Game/Stats"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Game/Stats/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="UI/Game/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "sdadas"
+fit_content = true
+scroll_active = false
+
+[node name="NextTurnButton" type="Button" parent="UI/Game/Stats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.03515625, 0.03515625, 0.03515625, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_13epp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6mfvx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c7vwf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i8bwd")
+text = "NEXT TURN!"
+
+[node name="Zones" type="VBoxContainer" parent="UI/Game"]
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Top" type="HBoxContainer" parent="UI/Game/Zones"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="SafetyZone" parent="UI/Game/Zones/Top" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "safety_zone_label"
+zone_type = 5
+zone_color = Color(0.03529412, 0.61960787, 0, 1)
+
+[node name="RepairZone" parent="UI/Game/Zones/Top" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "repair_zone_label"
+zone_type = 6
+zone_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[node name="Bottom" type="HBoxContainer" parent="UI/Game/Zones"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="CoolingZone" parent="UI/Game/Zones/Bottom" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "cooling_zone_label"
+zone_type = 2
+zone_color = Color(0.2627451, 0.57254905, 0.84313726, 1)
+
+[node name="GenerationZone" parent="UI/Game/Zones/Bottom" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "generation_zone_label"
+zone_type = 4
+zone_color = Color(0.78431374, 0.6627451, 0, 1)
+
+[node name="Centre" type="HBoxContainer" parent="UI/Game/Zones"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ControlZone" parent="UI/Game/Zones/Centre" instance=ExtResource("3_vw4oq")]
+layout_mode = 2
+zone_key = "control_zone_label"
+zone_type = 3
+zone_color = Color(0.40784314, 0.7137255, 0.3529412, 1)
+
+[node name="RecycleZone" type="PanelContainer" parent="UI/Game/Zones/Centre"]
+modulate = Color(1, 0.5625, 0.5625, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.54
+mouse_filter = 2
+
+[node name="VBC" type="VBoxContainer" parent="UI/Game/Zones/Centre/RecycleZone"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Label4" type="Label" parent="UI/Game/Zones/Centre/RecycleZone/VBC"]
+layout_mode = 2
+text = "RECYCLE ZONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TrashContainer" type="HBoxContainer" parent="UI/Game/Zones/Centre/RecycleZone/VBC"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="CardPlacement7" parent="UI/Game/Zones/Centre/RecycleZone/VBC/TrashContainer" instance=ExtResource("3_vjsom")]
+custom_minimum_size = Vector2(111, 156)
+layout_mode = 2
+placement_zone = 1
+
+[node name="CardPlacement9" parent="UI/Game/Zones/Centre/RecycleZone/VBC/TrashContainer" instance=ExtResource("3_vjsom")]
+custom_minimum_size = Vector2(111, 156)
+layout_mode = 2
+placement_zone = 1
+
+[node name="CardPlacement10" parent="UI/Game/Zones/Centre/RecycleZone/VBC/TrashContainer" instance=ExtResource("3_vjsom")]
+custom_minimum_size = Vector2(111, 156)
+layout_mode = 2
+placement_zone = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="UI/Game/Zones/Centre/RecycleZone"]
+self_modulate = Color(0.78431374, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_upw65")
+region_rect = Rect2(-4, 0, 45, 52)
+patch_margin_left = 5
+patch_margin_right = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+z_index = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -239.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CardContainer" type="HBoxContainer" parent="UI/PanelContainer"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("5_d7frl")
+
+[node name="GameOver" type="ColorRect" parent="UI"]
+z_index = 20
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27450982, 0.27450982, 0.27450982, 1)
+script = ExtResource("9_vjyv8")
+
+[node name="Lost" type="HBoxContainer" parent="UI/GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Features2" type="ColorRect" parent="UI/GameOver/Lost"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+color = Color(1, 1, 1, 0.039215688)
+
+[node name="FeaturesLabel" type="RichTextLabel" parent="UI/GameOver/Lost/Features2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1610.0
+offset_right = 1610.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=red][font_size=64][wave][b]Unlocked-Features:
+--Activate-Items--
+<NONE>
+--Passive-Items--
+<NONE>
+--One-Time-Buffs--[/b][/wave]
+[/font_size]
+*Cool-atmosphere*
+*Ignation*
+*Force-Field"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Centre" type="VBoxContainer" parent="UI/GameOver/Lost"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.1
+alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="UI/GameOver/Lost/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 64
+theme_override_styles/separator = ExtResource("10_hm3vq")
+
+[node name="StateLabel" type="RichTextLabel" parent="UI/GameOver/Lost/Centre"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=red][shake][b][font_size=128]!LOST!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/GameOver/Lost/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = ExtResource("10_hm3vq")
+
+[node name="AgainButton" type="Button" parent="UI/GameOver/Lost/Centre" node_paths=PackedStringArray("transition")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Play again"
+script = ExtResource("12_2cdyc")
+scene_to_load = "uid://deusnyrhiuos8"
+transition = NodePath("../../../../Transition")
+
+[node name="HSeparator2" type="HSeparator" parent="UI/GameOver/Lost/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxLine_hm3vq")
+
+[node name="ExitButton" type="Button" parent="UI/GameOver/Lost/Centre" node_paths=PackedStringArray("transition")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Close app"
+script = ExtResource("11_o5s4g")
+transition = NodePath("../../../../Transition")
+
+[node name="HSeparator3" type="HSeparator" parent="UI/GameOver/Lost/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxLine_hm3vq")
+
+[node name="MenuButton" type="Button" parent="UI/GameOver/Lost/Centre" node_paths=PackedStringArray("transition")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "To menu"
+script = ExtResource("12_2cdyc")
+scene_to_load = "uid://q01qylcsn48y"
+transition = NodePath("../../../../Transition")
+
+[node name="HSeparator4" type="HSeparator" parent="UI/GameOver/Lost/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 64
+theme_override_styles/separator = ExtResource("10_hm3vq")
+
+[node name="GGStats" type="ColorRect" parent="UI/GameOver/Lost"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.039215688)
+
+[node name="GGStatsLabel" type="RichTextLabel" parent="UI/GameOver/Lost/GGStats"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=orange][font_size=64][wave][b]----GAME-OVER----[/b][/wave]
+[/font_size]Game-Over-Case: melt-down
+Score: 26.15[img=,32]res://Assets/Sprites/Currencies/victory_points.png[/img]
+[font_size=64][wave][b]---Other-Stats---[/b][/wave][/font_size]
+a
+sd
+sd
+sd
+sd
+sd
+sd
+sd
+"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Features" type="ColorRect" parent="UI/GameOver/Lost"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+color = Color(0, 0, 0, 0.078431375)
+
+[node name="Transition" parent="UI" instance=ExtResource("13_2cdyc")]
+unique_name_in_owner = true
+visible = false
+change_noise_scene = true
+
+[node name="StartDeckManager" type="Node" parent="." node_paths=PackedStringArray("card_container")]
+script = ExtResource("6_vjyv8")
+decks = SubResource("Resource_7iy1p")
+card_container = NodePath("../UI/PanelContainer/CardContainer")
+
+[node name="GlobalDifficultyApplier" type="Node" parent="."]
+script = ExtResource("9_vw4oq")
+coef = 3.0
+
+[connection signal="pressed" from="UI/Game/Stats/MarginContainer/VBoxContainer/NextTurnButton" to="." method="_on_next_turn_button_pressed"]
+[connection signal="pressed" from="UI/Game/Stats/MarginContainer/VBoxContainer/NextTurnButton" to="StartDeckManager" method="_on_next_turn_button_pressed"]
+[connection signal="pressed" from="UI/GameOver/Lost/Centre/AgainButton" to="UI/GameOver" method="_on_again_button_pressed"]
+[connection signal="before_load" from="UI/GameOver/Lost/Centre/MenuButton" to="UI/GameOver" method="_on_menu_button_before_load"]

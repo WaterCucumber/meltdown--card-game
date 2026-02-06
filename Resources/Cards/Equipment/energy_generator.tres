@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="EquipmentCardData" load_steps=10 format=3 uid="uid://cli1ajbd3y62s"]
+
+[ext_resource type="Texture2D" uid="uid://cs67prrd67x6x" path="res://Assets/Sprites/Card/Card Effects/energy_effect.png" id="1_785kr"]
+[ext_resource type="Script" uid="uid://ce0lm7shqfucp" path="res://Scripts/Deck/Card/Card Use/placeable_card_use.gd" id="1_rxskh"]
+[ext_resource type="Script" uid="uid://dt6hlngc0a5hi" path="res://Scripts/Deck/Card/Card Data/equipment_card_data.gd" id="2_rxskh"]
+[ext_resource type="Script" uid="uid://bmxkphlu7hbq5" path="res://Scripts/Resources/currency_reference.gd" id="2_t73ql"]
+[ext_resource type="Script" uid="uid://6jmbu7dmvbqr" path="res://Scripts/Deck/Card/Card Use/Placeable/add_data_card_use.gd" id="3_tsx70"]
+[ext_resource type="Texture2D" uid="uid://dscxlkt6tlkyw" path="res://Assets/Sprites/Card/Equipment/energy_generator.png" id="3_vvyms"]
+
+[sub_resource type="Resource" id="Resource_se8nh"]
+script = ExtResource("2_t73ql")
+type = 3
+value = 3.0
+metadata/_custom_type_script = "uid://bmxkphlu7hbq5"
+
+[sub_resource type="Resource" id="Resource_x8atd"]
+script = ExtResource("2_t73ql")
+type = 2
+value = 3.0
+metadata/_custom_type_script = "uid://bmxkphlu7hbq5"
+
+[sub_resource type="Resource" id="Resource_5ds28"]
+script = ExtResource("3_tsx70")
+data = Array[ExtResource("2_t73ql")]([SubResource("Resource_se8nh"), SubResource("Resource_x8atd")])
+metadata/_custom_type_script = "uid://6jmbu7dmvbqr"
+
+[resource]
+script = ExtResource("2_rxskh")
+card_use = Array[ExtResource("1_rxskh")]([SubResource("Resource_5ds28")])
+card_zone = 4
+description = "+3 /e.
++3 /t."
+cost = 2
+texture = ExtResource("3_vvyms")
+effect_texture = ExtResource("1_785kr")
+metadata/_custom_type_script = "uid://dt6hlngc0a5hi"

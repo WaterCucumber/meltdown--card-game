@@ -1,0 +1,172 @@
+[gd_scene load_steps=10 format=3 uid="uid://q01qylcsn48y"]
+
+[ext_resource type="Script" uid="uid://crq435xe5bphu" path="res://Scripts/Buttons/load_scene_button.gd" id="2_wwsa2"]
+[ext_resource type="PackedScene" uid="uid://b418qlaldakw5" path="res://Scenes/transition.tscn" id="3_cayip"]
+[ext_resource type="PackedScene" uid="uid://ecl0sicm5ii0" path="res://Scenes/effect.tscn" id="4_158mb"]
+[ext_resource type="Script" uid="uid://jd8jqq83sigo" path="res://Scripts/Buttons/exit_button.gd" id="4_wbdvm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cayip"]
+bg_color = Color(0.24705882, 0.24705882, 0.24705882, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xhh6f"]
+color = Color(1, 0, 0, 1)
+thickness = 16
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_cayip"]
+color = Color(1, 0, 0, 1)
+thickness = 16
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_nfm0g"]
+color = Color(0.54901963, 0.54901963, 0.54901963, 1)
+grow_begin = -20.0
+grow_end = -20.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_158mb"]
+color = Color(1, 0, 0, 1)
+thickness = 16
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27450982, 0.27450982, 0.27450982, 1)
+
+[node name="Main" type="HBoxContainer" parent="Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="ColorRect" parent="Body/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+color = Color(1, 1, 1, 0.039215688)
+
+[node name="Centre" type="PanelContainer" parent="Body/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.1
+theme_override_styles/panel = SubResource("StyleBoxFlat_cayip")
+
+[node name="Centre" type="VBoxContainer" parent="Body/Main/Centre"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="Body/Main/Centre/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 64
+theme_override_styles/separator = SubResource("StyleBoxLine_xhh6f")
+
+[node name="StateLabel" type="RichTextLabel" parent="Body/Main/Centre/Centre"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=red][shake][b][font_size=128]!MELTDOWN!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Body/Main/Centre/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxLine_cayip")
+
+[node name="Start" type="MarginContainer" parent="Body/Main/Centre/Centre"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="StartButton" type="Button" parent="Body/Main/Centre/Centre/Start" node_paths=PackedStringArray("transition")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Start game"
+script = ExtResource("2_wwsa2")
+scene_to_load = "uid://deusnyrhiuos8"
+transition = NodePath("../../../../../../Transition")
+
+[node name="HSeparator2" type="HSeparator" parent="Body/Main/Centre/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxLine_nfm0g")
+
+[node name="Settings" type="MarginContainer" parent="Body/Main/Centre/Centre"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="SettingsButton" type="Button" parent="Body/Main/Centre/Centre/Settings" node_paths=PackedStringArray("transition")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+script = ExtResource("2_wwsa2")
+transition = NodePath("../../../../../../Transition")
+
+[node name="HSeparator3" type="HSeparator" parent="Body/Main/Centre/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 32
+theme_override_styles/separator = SubResource("StyleBoxLine_nfm0g")
+
+[node name="Exit" type="MarginContainer" parent="Body/Main/Centre/Centre"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ExitButton" type="Button" parent="Body/Main/Centre/Centre/Exit" node_paths=PackedStringArray("transition")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Exit"
+script = ExtResource("4_wbdvm")
+transition = NodePath("../../../../../../Transition")
+
+[node name="HSeparator4" type="HSeparator" parent="Body/Main/Centre/Centre"]
+layout_mode = 2
+theme_override_constants/separation = 64
+theme_override_styles/separator = SubResource("StyleBoxLine_158mb")
+
+[node name="Stat" type="ColorRect" parent="Body/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.039215688)
+
+[node name="StatsLabel" type="RichTextLabel" parent="Body/Main/Stat"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="ColorRect" parent="Body/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+color = Color(0, 0, 0, 0.078431375)
+
+[node name="Transition" parent="." instance=ExtResource("3_cayip")]
+visible = false
+layout_mode = 1
+change_noise_scene = true
+
+[node name="Effect" parent="." instance=ExtResource("4_158mb")]
+layout_mode = 1

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="CurrencyInventory" load_steps=10 format=3 uid="uid://ca1isavrcbmqq"]
+
+[ext_resource type="Script" uid="uid://br5v23qy75mee" path="res://Scripts/cs/Resources/CurrencyInventory.cs" id="1_klumx"]
+[ext_resource type="Script" uid="uid://oxybugqrmnxb" path="res://Scripts/cs/Resources/Currency.cs" id="2_vwd1v"]
+
+[sub_resource type="Resource" id="Resource_vwd1v"]
+script = ExtResource("2_vwd1v")
+_value = 5.0
+metadata/_custom_type_script = "uid://oxybugqrmnxb"
+
+[sub_resource type="Resource" id="Resource_imwev"]
+script = ExtResource("2_vwd1v")
+metadata/_custom_type_script = "uid://oxybugqrmnxb"
+
+[sub_resource type="Resource" id="Resource_6f5xl"]
+script = ExtResource("2_vwd1v")
+_value = 5.0
+metadata/_custom_type_script = "uid://oxybugqrmnxb"
+
+[sub_resource type="Resource" id="Resource_i6o3x"]
+script = ExtResource("2_vwd1v")
+metadata/_custom_type_script = "uid://oxybugqrmnxb"
+
+[sub_resource type="Resource" id="Resource_gubrq"]
+script = ExtResource("2_vwd1v")
+metadata/_custom_type_script = "uid://oxybugqrmnxb"
+
+[sub_resource type="Resource" id="Resource_rntc8"]
+script = ExtResource("2_vwd1v")
+metadata/_custom_type_script = "uid://oxybugqrmnxb"
+
+[sub_resource type="Resource" id="Resource_wupyf"]
+script = ExtResource("2_vwd1v")
+metadata/_custom_type_script = "uid://oxybugqrmnxb"
+
+[resource]
+script = ExtResource("1_klumx")
+action_points = SubResource("Resource_vwd1v")
+radiation = SubResource("Resource_i6o3x")
+temperature = SubResource("Resource_rntc8")
+energy = SubResource("Resource_6f5xl")
+safety_points = SubResource("Resource_gubrq")
+victory_points = SubResource("Resource_wupyf")
+difficulty = SubResource("Resource_imwev")
+metadata/_custom_type_script = "uid://br5v23qy75mee"

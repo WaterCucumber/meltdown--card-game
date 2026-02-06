@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd6gfvs7ctona"]
+
+[ext_resource type="Texture2D" uid="uid://dpiv0lenr2qxh" path="res://Assets/Sprites/Card/card_holder.png" id="1_eitk2"]
+[ext_resource type="Script" uid="uid://c4w5fjl8l66hq" path="res://Card Moving System/Scripts/card_placement.gd" id="1_pe8fv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eitk2"]
+
+[node name="CardPlacement" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1047.0
+offset_bottom = -498.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_eitk2")
+script = ExtResource("1_pe8fv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(105, 150)
+layout_mode = 2
+texture = ExtResource("1_eitk2")
+expand_mode = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

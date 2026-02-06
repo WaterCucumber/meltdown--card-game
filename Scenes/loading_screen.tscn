@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://cr4xeewr3sdd6"]
+
+[ext_resource type="Script" uid="uid://mssgugk6fyxk" path="res://Scripts/loading_screen.gd" id="1_nfm0g"]
+[ext_resource type="Texture2D" uid="uid://hjsux063n8w3" path="res://Assets/Sprites/Samples/Shapes/WhitePixel.png" id="2_0t5xw"]
+[ext_resource type="PackedScene" uid="uid://b418qlaldakw5" path="res://Scenes/transition.tscn" id="4_fayou"]
+[ext_resource type="PackedScene" uid="uid://ecl0sicm5ii0" path="res://Scenes/effect.tscn" id="5_1godw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t5xw"]
+bg_color = Color(0.4375, 0.18457031, 0.18457031, 1)
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fayou"]
+color = Color(1, 0, 0, 1)
+thickness = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nfm0g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fayou"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1godw"]
+color = Color(1, 0, 0, 1)
+thickness = 16
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nfm0g")
+
+[node name="Transition" parent="." instance=ExtResource("4_fayou")]
+visible = false
+layout_mode = 1
+change_noise_scene = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0t5xw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_fayou")
+
+[node name="TopProgressBar" type="TextureProgressBar" parent="PanelContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 0.44
+nine_patch_stretch = true
+texture_progress = ExtResource("2_0t5xw")
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="LoadLabel" type="RichTextLabel" parent="PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nfm0g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fayou")
+bbcode_enabled = true
+text = "[color=red][b][font_size=64][shake]!LOADING!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="ProgressLabel" type="RichTextLabel" parent="PanelContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=red][font_size=32]10%/100%"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomProgressBar" type="TextureProgressBar" parent="PanelContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 0.44
+fill_mode = 1
+nine_patch_stretch = true
+texture_progress = ExtResource("2_0t5xw")
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_1godw")
+
+[node name="Effect" parent="." instance=ExtResource("5_1godw")]
+layout_mode = 1

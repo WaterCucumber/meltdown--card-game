@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://1yxhsyhpopom"]
+
+[ext_resource type="Script" uid="uid://sdsyhk67cmma" path="res://Card Moving System/Scripts/card_container.gd" id="1_iad2w"]
+
+[node name="CardContainer" type="HBoxContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -22.0
+offset_right = -9.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("1_iad2w")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

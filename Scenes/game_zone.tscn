@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://druki8ivfu6of"]
+
+[ext_resource type="Script" uid="uid://c437425aswr7t" path="res://Scripts/placement_zone.gd" id="1_l4aa0"]
+[ext_resource type="Texture2D" uid="uid://dpiv0lenr2qxh" path="res://Assets/Sprites/Card/card_holder.png" id="3_p263m"]
+
+[node name="GameZone" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_l4aa0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.033966064, 0.62109375, 0, 1)
+
+[node name="VBC" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/VBC"]
+layout_mode = 2
+text = "SAFETY ZONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBC" type="HBoxContainer" parent="ColorRect/VBC"]
+layout_mode = 2
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect"]
+self_modulate = Color(0.03529412, 0.61960787, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_p263m")
+region_rect = Rect2(-4, 0, 45, 52)
+patch_margin_left = 5
+patch_margin_right = 5

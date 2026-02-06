@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="EquipmentCardData" load_steps=11 format=3 uid="uid://dusvh578jsfu6"]
+
+[ext_resource type="Texture2D" uid="uid://dkvmtw5568quh" path="res://Assets/Sprites/Card/Card Effects/nuclear_effect.png" id="1_335wu"]
+[ext_resource type="Script" uid="uid://ce0lm7shqfucp" path="res://Scripts/Deck/Card/Card Use/placeable_card_use.gd" id="1_xqvqi"]
+[ext_resource type="Script" uid="uid://bmxkphlu7hbq5" path="res://Scripts/Resources/currency_reference.gd" id="2_dr1i3"]
+[ext_resource type="Script" uid="uid://dt6hlngc0a5hi" path="res://Scripts/Deck/Card/Card Data/equipment_card_data.gd" id="2_xqvqi"]
+[ext_resource type="Texture2D" uid="uid://ct8gypc1wgacp" path="res://Assets/Sprites/Card/Equipment/reactor_rod.png" id="3_hdwvd"]
+[ext_resource type="Script" uid="uid://6jmbu7dmvbqr" path="res://Scripts/Deck/Card/Card Use/Placeable/add_data_card_use.gd" id="3_nlki7"]
+
+[sub_resource type="Resource" id="Resource_urdo7"]
+script = ExtResource("2_dr1i3")
+type = 3
+value = 8.0
+metadata/_custom_type_script = "uid://bmxkphlu7hbq5"
+
+[sub_resource type="Resource" id="Resource_iehv7"]
+script = ExtResource("2_dr1i3")
+type = 2
+value = 3.0
+metadata/_custom_type_script = "uid://bmxkphlu7hbq5"
+
+[sub_resource type="Resource" id="Resource_y0ipu"]
+script = ExtResource("2_dr1i3")
+type = 1
+value = 3.0
+metadata/_custom_type_script = "uid://bmxkphlu7hbq5"
+
+[sub_resource type="Resource" id="Resource_8mbff"]
+script = ExtResource("3_nlki7")
+data = Array[ExtResource("2_dr1i3")]([SubResource("Resource_urdo7"), SubResource("Resource_iehv7"), SubResource("Resource_y0ipu")])
+metadata/_custom_type_script = "uid://6jmbu7dmvbqr"
+
+[resource]
+script = ExtResource("2_xqvqi")
+card_use = Array[ExtResource("1_xqvqi")]([SubResource("Resource_8mbff")])
+card_zone = 4
+description = "+8 /e.
++3 /t. +3 /r."
+cost = 4
+texture = ExtResource("3_hdwvd")
+effect_texture = ExtResource("1_335wu")
+metadata/_custom_type_script = "uid://dt6hlngc0a5hi"

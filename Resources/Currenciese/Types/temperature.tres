@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CurrencyType" load_steps=2 format=3 uid="uid://c208dpd3fh1rh"]
+
+[ext_resource type="Script" uid="uid://cgjimunn224dl" path="res://Scripts/cs/Resources/CurrencyType.cs" id="1_nobd4"]
+
+[resource]
+script = ExtResource("1_nobd4")
+texture = "uid://cw0lsjke5mkvm"
+limit = 100.0
+floor_coef = 10.0
+use_buff = true
+buff_influence = -0.004
+metadata/_custom_type_script = "uid://cgjimunn224dl"

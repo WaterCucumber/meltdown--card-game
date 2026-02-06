@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GlobalDifficulty" load_steps=2 format=3 uid="uid://blwnulgp4u1nm"]
+
+[ext_resource type="Script" uid="uid://ofjp805i8dwv" path="res://Scripts/Resources/global_difficulty.gd" id="1_4dq0i"]
+
+[resource]
+script = ExtResource("1_4dq0i")
+metadata/_custom_type_script = "uid://ofjp805i8dwv"

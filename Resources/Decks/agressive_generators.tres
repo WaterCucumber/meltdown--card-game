@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=14 format=3 uid="uid://d23fhcp8qvtat"]
+
+[ext_resource type="Script" uid="uid://ck5hej8a6ahgg" path="res://Scripts/Deck/Card/Card Data/crises_card_data.gd" id="1_n4i13"]
+[ext_resource type="Script" uid="uid://dt6hlngc0a5hi" path="res://Scripts/Deck/Card/Card Data/equipment_card_data.gd" id="2_rkye4"]
+[ext_resource type="Resource" uid="uid://bxv8j5ompb8gi" path="res://Resources/Cards/Equipment/cooling_pump.tres" id="3_npbjk"]
+[ext_resource type="Script" uid="uid://b3qvv54isv8ns" path="res://Scripts/Deck/Card/Card Data/event_card_data.gd" id="3_nvwjn"]
+[ext_resource type="Resource" uid="uid://cli1ajbd3y62s" path="res://Resources/Cards/Equipment/energy_generator.tres" id="4_cccfh"]
+[ext_resource type="Script" uid="uid://b1brv5gpclye3" path="res://Scripts/Deck/deck.gd" id="4_htnue"]
+[ext_resource type="Resource" uid="uid://dusvh578jsfu6" path="res://Resources/Cards/Equipment/reactor_rod.tres" id="5_f312x"]
+[ext_resource type="Script" uid="uid://ccc1sug3ke1i7" path="res://Scripts/Deck/Card/Card Data/staff_card_data.gd" id="5_ygq6m"]
+[ext_resource type="Resource" uid="uid://ttnudl6olrwl" path="res://Resources/Cards/Equipment/security_shield.tres" id="6_cccfh"]
+[ext_resource type="Resource" uid="uid://ks4vvobg4g7x" path="res://Resources/Cards/Staff/cooling_engineer.tres" id="6_rkye4"]
+[ext_resource type="Resource" uid="uid://b65vtlge1l18o" path="res://Resources/Cards/Staff/nuclear_physicist.tres" id="7_nvwjn"]
+[ext_resource type="Resource" uid="uid://dk30hnotw7rid" path="res://Resources/Cards/Staff/repair_technician.tres" id="8_htnue"]
+[ext_resource type="Resource" uid="uid://wkc5rlfsaso6" path="res://Resources/Cards/Staff/medic.tres" id="13_f312x"]
+
+[resource]
+script = ExtResource("4_htnue")
+name = "Agressive generators"
+staff_cards = Array[ExtResource("5_ygq6m")]([ExtResource("6_rkye4"), ExtResource("6_rkye4"), ExtResource("13_f312x"), ExtResource("13_f312x"), ExtResource("7_nvwjn"), ExtResource("7_nvwjn"), ExtResource("8_htnue"), ExtResource("8_htnue")])
+equipment_cards = Array[ExtResource("2_rkye4")]([ExtResource("3_npbjk"), ExtResource("3_npbjk"), ExtResource("4_cccfh"), ExtResource("4_cccfh"), ExtResource("4_cccfh"), ExtResource("5_f312x"), ExtResource("6_cccfh"), ExtResource("6_cccfh")])
+metadata/_custom_type_script = "uid://b1brv5gpclye3"

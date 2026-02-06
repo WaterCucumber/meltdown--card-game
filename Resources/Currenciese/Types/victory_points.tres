@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CurrencyType" load_steps=2 format=3 uid="uid://dytesxim3pcy3"]
+
+[ext_resource type="Script" uid="uid://cgjimunn224dl" path="res://Scripts/cs/Resources/CurrencyType.cs" id="1_ofet3"]
+
+[resource]
+script = ExtResource("1_ofet3")
+placeholder_text = "/v/i (/d/i)"
+texture = "uid://b1ow4gnjrlkag"
+positive = true
+floor_coef = 100.0
+use_buff = true
+buff_influence = 0.01
+metadata/_custom_type_script = "uid://cgjimunn224dl"

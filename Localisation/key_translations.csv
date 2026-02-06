@@ -1,0 +1,24 @@
+,en,ru
+temperature_label,"temperature: %s / 100, ","температура: %s / 100, "
+radiation_label,"radiation: %s, ","радиация: %s, "
+energy_label,"energy: %s / 100, ","энергия: %s / 100, "
+action_points_label,"action points: %s / 5, ","очки действия: %s / 5,  "
+safety_level_label,"safety level: %s / 100, ","уровень безопасности: %s / 100, "
+victory_points_label,victory points: %s,очки победы: %s
+,,
+safety_zone_label,SAFETY ZONE,ЗОНА БЕЗОПАСНОСТИ
+repair_zone_label,REPAIR ZONE,ЗОНА РЕМОНТА
+generation_zone_label,GENERATION ZONE,ЗОНА ГЕНЕРАЦИИ
+trash_zone_label,TRASH ZONE,ЗОНА МУСОРА
+cooling_zone_label,COOLING ZONE,ЗОНА ОХЛАЖДЕНИЯ
+control_zone_label,CONTROL ZONE,ЗОНА КОНТРОЛЯ
+,,
+cooling_pump_name,Cooling Pump,Насос Охлаждения
+energy_generator_name,Energy Generator,Генератор Энергии
+reactor_rod_name,Reactor Rod,Стержень Реактора
+security_shield_name,Security Shield,Щит Безопасности
+,,
+cooling_engineer_name,Cooling Engineer,Инженер Охлаждения
+medic_name,Medic,Доктор
+nuclear_physicist_name,Nuclear Physicist,Физик-ядерщик
+repair_technician_name,Repair Technician,Техник по ремонту

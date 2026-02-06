@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="StaffCardData" load_steps=10 format=3 uid="uid://ks4vvobg4g7x"]
+
+[ext_resource type="Texture2D" uid="uid://bmcpwlu5jgvxq" path="res://Assets/Sprites/Card/Card Effects/cooling_card_0.png" id="1_c1ovt"]
+[ext_resource type="Script" uid="uid://ce0lm7shqfucp" path="res://Scripts/Deck/Card/Card Use/placeable_card_use.gd" id="1_v5nhc"]
+[ext_resource type="Script" uid="uid://ccc1sug3ke1i7" path="res://Scripts/Deck/Card/Card Data/staff_card_data.gd" id="2_o7sl0"]
+[ext_resource type="Script" uid="uid://bmxkphlu7hbq5" path="res://Scripts/Resources/currency_reference.gd" id="2_v5nhc"]
+[ext_resource type="Texture2D" uid="uid://b7brtdjmym6fl" path="res://Assets/Sprites/Card/Staff/cooling_engineer.png" id="3_o7sl0"]
+[ext_resource type="Script" uid="uid://6jmbu7dmvbqr" path="res://Scripts/Deck/Card/Card Use/Placeable/add_data_card_use.gd" id="3_x73qs"]
+
+[sub_resource type="Resource" id="Resource_v5nhc"]
+script = ExtResource("2_v5nhc")
+type = 2
+value = -5.0
+metadata/_custom_type_script = "uid://bmxkphlu7hbq5"
+
+[sub_resource type="Resource" id="Resource_kkolb"]
+script = ExtResource("2_v5nhc")
+type = 1
+value = 1.0
+metadata/_custom_type_script = "uid://bmxkphlu7hbq5"
+
+[sub_resource type="Resource" id="Resource_vahus"]
+script = ExtResource("3_x73qs")
+data = Array[ExtResource("2_v5nhc")]([SubResource("Resource_v5nhc"), SubResource("Resource_kkolb")])
+metadata/_custom_type_script = "uid://6jmbu7dmvbqr"
+
+[resource]
+script = ExtResource("2_o7sl0")
+card_use = Array[ExtResource("1_v5nhc")]([SubResource("Resource_vahus")])
+card_zone = 2
+description = "-5 /t. 
++1 /r."
+cost = 2
+texture = ExtResource("3_o7sl0")
+effect_texture = ExtResource("1_c1ovt")
+metadata/_custom_type_script = "uid://ccc1sug3ke1i7"

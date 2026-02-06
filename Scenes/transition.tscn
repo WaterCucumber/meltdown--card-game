@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b418qlaldakw5"]
+
+[ext_resource type="Material" uid="uid://bf0iifj36wsd3" path="res://Addons/Transition/Shaders/transition.tres" id="1_vlteq"]
+[ext_resource type="Texture2D" uid="uid://hjsux063n8w3" path="res://Assets/Sprites/Samples/Shapes/WhitePixel.png" id="2_3nmoj"]
+[ext_resource type="Script" uid="uid://dtd7npxis4vkl" path="res://Addons/Transition/Scripts/shader_transition.gd" id="3_nshyj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yisgd"]
+texture = ExtResource("2_3nmoj")
+modulate_color = Color(0, 0, 0, 1)
+
+[node name="Transition" type="Panel"]
+z_index = 25
+material = ExtResource("1_vlteq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yisgd")
+script = ExtResource("3_nshyj")
